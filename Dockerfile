@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM ubuntu:latest
 
 RUN apt-get -qq update && apt-get -qq install -y \
     unzip \
