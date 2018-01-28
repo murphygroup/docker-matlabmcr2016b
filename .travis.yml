@@ -14,5 +14,4 @@ before_install:
   - docker build -t murphylab/matlabmcr2016b .
 
 script:
-  - docker images 
-  - docker run -d murphylab/matlabmcr2016b /bin/sh -c "ls -lt"
+  - docker images
