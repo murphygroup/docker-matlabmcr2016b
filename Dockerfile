@@ -2,10 +2,10 @@ FROM ubuntu:latest
 
 ###############################################################################################
 MAINTAINER Ivan E. Cao-Berg <icaoberg@andrew.cmu.edu>
-LABEL Description="Ubuntu 16.04 + MATLAB MCR 2018a"
+LABEL Description="Ubuntu 16.04 + MATLAB MCR 2016b"
 LABEL Vendor="Murphy Lab in the Computational Biology Department at Carnegie Mellon University"
 LABEL Web="http://murphylab.cbd.cmu.edu"
-LABEL Version="2018a"
+LABEL Version="2016b"
 ###############################################################################################
 
 ###############################################################################################
@@ -27,7 +27,7 @@ RUN apt-get upgrade -y
 ###############################################################################################
 # INSTALL MATLAB MCR 2016B
 USER root
-RUN echo "Downloading Matlab MCR 2016B"
+RUN echo "Downloading Matlab MCR 2016b"
 RUN mkdir /mcr-install && \
     mkdir /opt/mcr
 RUN cd /mcr-install && \
@@ -40,7 +40,7 @@ RUN cd /mcr-install && \
     rm -rvf mcr-install
 
 # CONFIGURE ENVIRONMENT VARIABLES FOR MCR
-#RUN mv -v /opt/mcr/v91/sys/os/glnxa64/libstdc++.so.6 /opt/mcr/v91/sys/os/glnxa64/libstdc++.so.6.old
+RUN mv -v /opt/mcr/v91/sys/os/glnxa64/libstdc++.so.6 /opt/mcr/v91/sys/os/glnxa64/libstdc++.so.6.old
 ENV LD_LIBRARY_PATH /opt/mcr/v91/runtime/glnxa64:/opt/mcr/v91/bin/glnxa64:/opt/mcr/v91/sys/os/glnxa64
 ENV XAPPLRESDIR /opt/mcr/v91/X11/app-defaults
 ###############################################################################################
